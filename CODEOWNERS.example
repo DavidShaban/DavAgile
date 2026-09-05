@@ -1,0 +1,4 @@
+# Replace placeholders with actual GitHub users/teams.
+.github/workflows/   @REPLACE-GOVERNANCE-OWNER
+agents/              @REPLACE-AGENT-OWNER @REPLACE-GOVERNANCE-OWNER
+governance/          @REPLACE-GOVERNANCE-OWNER

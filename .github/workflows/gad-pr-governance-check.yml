@@ -1,0 +1,56 @@
+name: GAD PR Governance Check
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate required GAD sections
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          required=(
+            "## GAD Governance Metadata"
+            "## Evidence"
+            "## Facts / Assumptions / Unknowns"
+            "## Validation"
+            "## Rollback / Reversibility"
+            "## Human Decision"
+          )
+          for heading in "${required[@]}"; do
+            if ! grep -Fq "$heading" <<< "${PR_BODY:-}"; then
+              echo "Missing required section: $heading"
+              exit 1
+            fi
+          done
+
+      - name: Require Jira key
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! grep -Eq '\*\*Jira Key:\*\*[[:space:]]*[A-Z]+-[0-9]+' <<< "${PR_BODY:-}"; then
+            echo "A Jira issue key is required."
+            exit 1
+          fi
+
+      - name: Reject implicit approval wording
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -Eqi 'silence means approval|auto[- ]?approve A[34]|implicit approval' <<< "${PR_BODY:-}"; then
+            echo "GAD violation: implicit A3/A4 approval language detected."
+            exit 1
+          fi

@@ -1,0 +1,44 @@
+name: GAD Decision
+description: Record a governed decision or escalation for GAD-PILOT-01.
+title: "[GAD Decision] "
+labels: ["gad", "decision"]
+body:
+  - type: input
+    id: jira
+    attributes:
+      label: Jira Key
+      placeholder: GAD-18
+    validations:
+      required: true
+  - type: dropdown
+    id: auth
+    attributes:
+      label: Authorization Level
+      options: [A0, A1, A2, A3, A4]
+    validations:
+      required: true
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Risk
+      options: [Low, Moderate, High, Critical]
+    validations:
+      required: true
+  - type: textarea
+    id: request
+    attributes:
+      label: Decision Requested
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+    validations:
+      required: true
+  - type: textarea
+    id: rollback
+    attributes:
+      label: Reversibility / Rollback
+    validations:
+      required: true
