@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "pilot": "GAD-PILOT-01",
+  "mode": "SIMULATION_ONLY",
+  "data_scope": "synthetic_non_sensitive_only",
+  "runtime_binding": "controlled_chat_or_test_harness_only",
+  "activation_scope": "SIM-01_to_SIM-08",
+  "allowed_repository": "DavidShaban/DavAgile",
+  "allowed_jira_project": "GAD",
+  "human_project_hub": "David Betzold",
+  "real_production_deployment": false,
+  "real_external_consequential_actions": false,
+  "a3_a4_approval_authority": false,
+  "regulated_data_use": false,
+  "network_side_effects": "none_except_governed_jira_github_evidence_operations",
+  "approval_effective_only_after_required_ci_passes_and_merge": true
+}
