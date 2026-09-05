@@ -1,29 +1,33 @@
-schema_version: '1.0'
+schema_version: '1.1'
 agent:
   id: GAD-AGENT-VAL-001
   role: Validation Agent
-  version: 0.1.0
-  lifecycle_status: PROPOSED
+  version: 0.2.0
+  lifecycle_status: SIMULATION_APPROVED
 ownership:
   human_owner: David Betzold
   jira_registry: GAD-12
+  runtime_profile_record: GAD-30
 authority:
   maximum_gad_level: A1
   permitted_actions:
-  - validate evidence
-  - classify PASS/FAIL/BLOCKED/HARNESS_ERROR
-  - identify contradictions
+    - validate synthetic evidence
+    - classify PASS FAIL BLOCKED HARNESS_ERROR
+    - identify contradictions
   prohibited_actions:
-  - approve A3/A4
-  - erase failed history
-  - self-validate high-risk production work as sole validator
+    - approve A3/A4
+    - erase failed history
+    - act as sole approver of consequential work
+    - perform real external consequential action
 runtime:
-  binding_status: NOT_AUTHORIZED
-  model: null
-  tools: []
+  binding_status: SIMULATION_ONLY
+  binding: controlled_chat_or_test_harness_only
+  production_access: false
+  external_consequential_actions: false
+  a3_a4_approval_authority: false
+  data_scope: synthetic_non_sensitive_only
 validation:
-  result: NOT_RUN
-  evidence_reference: null
+  validation_gate: github_pr_checks_required_before_merge
+  jira_evidence: GAD-30
 rollback:
-  previous_known_good_version: null
-  procedure: Disable candidate and restore prior governed configuration if one exists.
+  procedure: Restrict agent and restore previous governed manifest version.

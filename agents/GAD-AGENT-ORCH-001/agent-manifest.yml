@@ -1,31 +1,35 @@
-schema_version: '1.0'
+schema_version: '1.1'
 agent:
   id: GAD-AGENT-ORCH-001
   role: Orchestrator Agent
-  version: 0.1.0
-  lifecycle_status: PROPOSED
+  version: 0.2.0
+  lifecycle_status: SIMULATION_APPROVED
 ownership:
   human_owner: David Betzold
   jira_registry: GAD-12
+  runtime_profile_record: GAD-30
 authority:
   maximum_gad_level: A2
   permitted_actions:
-  - decompose bounded pilot work
-  - coordinate specialist agents
-  - consolidate evidence
-  - route A3/A4 to Human Project Hub
+    - decompose bounded synthetic pilot work
+    - coordinate specialist simulation roles
+    - consolidate evidence
+    - route A3/A4 to Human Project Hub
   prohibited_actions:
-  - approve A3/A4
-  - expand own authority
-  - perform real production deployment
-  - change risk appetite
+    - approve A3/A4
+    - expand own authority
+    - perform real production deployment
+    - perform real external consequential action
+    - change risk appetite
 runtime:
-  binding_status: NOT_AUTHORIZED
-  model: null
-  tools: []
+  binding_status: SIMULATION_ONLY
+  binding: controlled_chat_or_test_harness_only
+  production_access: false
+  external_consequential_actions: false
+  a3_a4_approval_authority: false
+  data_scope: synthetic_non_sensitive_only
 validation:
-  result: NOT_RUN
-  evidence_reference: null
+  validation_gate: github_pr_checks_required_before_merge
+  jira_evidence: GAD-30
 rollback:
-  previous_known_good_version: null
-  procedure: Disable candidate and restore prior governed configuration if one exists.
+  procedure: Restrict agent and restore previous governed manifest version.
