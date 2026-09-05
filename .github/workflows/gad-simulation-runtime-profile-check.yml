@@ -17,7 +17,7 @@ jobs:
       - name: Validate simulation runtime profile
         shell: python
         run: |
-          import json, pathlib, re, sys
+          import json, pathlib, re
 
           profile_path = pathlib.Path('governance/simulation-runtime-profile.json')
           if not profile_path.exists():
@@ -44,20 +44,33 @@ jobs:
               'GAD-AGENT-CHAL-001': 'A1',
           }
 
+          def require_exact_field(text, key, expected_value, agent_id):
+              key_pattern = re.compile(
+                  rf'(?m)^[ \t]*{re.escape(key)}:[ \t]*(.*?)[ \t]*$'
+              )
+              matches = key_pattern.findall(text)
+              assert len(matches) == 1, (
+                  f'{agent_id}: expected exactly one {key} field, found {len(matches)}'
+              )
+              actual = matches[0].strip().strip("'\"")
+              assert actual == expected_value, (
+                  f'{agent_id}: invalid {key}: expected {expected_value!r}, got {actual!r}'
+              )
+
           for agent_id, max_auth in expected.items():
               path = pathlib.Path('agents') / agent_id / 'agent-manifest.yml'
               text = path.read_text(encoding='utf-8')
-              checks = [
-                  f'id: {agent_id}',
-                  'lifecycle_status: SIMULATION_APPROVED',
-                  f'maximum_gad_level: {max_auth}',
-                  'binding_status: SIMULATION_ONLY',
-                  'production_access: false',
-                  'external_consequential_actions: false',
-                  'a3_a4_approval_authority: false',
-                  'data_scope: synthetic_non_sensitive_only',
-              ]
-              for item in checks:
-                  assert item in text, f'{agent_id}: missing or invalid {item}'
+              checks = {
+                  'id': agent_id,
+                  'lifecycle_status': 'SIMULATION_APPROVED',
+                  'maximum_gad_level': max_auth,
+                  'binding_status': 'SIMULATION_ONLY',
+                  'production_access': 'false',
+                  'external_consequential_actions': 'false',
+                  'a3_a4_approval_authority': 'false',
+                  'data_scope': 'synthetic_non_sensitive_only',
+              }
+              for key, expected_value in checks.items():
+                  require_exact_field(text, key, expected_value, agent_id)
 
-          print('PASS: GAD simulation runtime boundaries are valid.')
+          print('PASS: GAD simulation runtime boundaries are valid with exact field-value validation.')
