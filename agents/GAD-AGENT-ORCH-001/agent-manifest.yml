@@ -1,0 +1,31 @@
+schema_version: '1.0'
+agent:
+  id: GAD-AGENT-ORCH-001
+  role: Orchestrator Agent
+  version: 0.1.0
+  lifecycle_status: PROPOSED
+ownership:
+  human_owner: David Betzold
+  jira_registry: GAD-12
+authority:
+  maximum_gad_level: A2
+  permitted_actions:
+  - decompose bounded pilot work
+  - coordinate specialist agents
+  - consolidate evidence
+  - route A3/A4 to Human Project Hub
+  prohibited_actions:
+  - approve A3/A4
+  - expand own authority
+  - perform real production deployment
+  - change risk appetite
+runtime:
+  binding_status: NOT_AUTHORIZED
+  model: null
+  tools: []
+validation:
+  result: NOT_RUN
+  evidence_reference: null
+rollback:
+  previous_known_good_version: null
+  procedure: Disable candidate and restore prior governed configuration if one exists.

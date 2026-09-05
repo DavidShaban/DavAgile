@@ -1,0 +1,40 @@
+name: GAD A3 Simulated Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      jira_decision:
+        description: "Approved Jira GAD Decision key"
+        required: true
+        type: string
+      artifact_ref:
+        description: "Commit, tag, or artifact reference"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  simulated-deployment:
+    runs-on: ubuntu-latest
+    environment: gad-a3-simulated-production
+    steps:
+      - name: Validate Jira decision format
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! [[ "${{ inputs.jira_decision }}" =~ ^GAD-[0-9]+$ ]]; then
+            echo "Expected a GAD Jira decision key."
+            exit 1
+          fi
+
+      - name: Record simulated deployment only
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "GAD-PILOT-01"
+          echo "SIMULATED DEPLOYMENT ONLY"
+          echo "Jira decision: ${{ inputs.jira_decision }}"
+          echo "Artifact: ${{ inputs.artifact_ref }}"
+          echo "No real production endpoint is used."

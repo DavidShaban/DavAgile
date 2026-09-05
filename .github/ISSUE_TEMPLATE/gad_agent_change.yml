@@ -1,0 +1,48 @@
+name: GAD Agent Change
+description: Propose a governed change to a pilot agent.
+title: "[Agent Change] "
+labels: ["gad", "agent-change"]
+body:
+  - type: input
+    id: jira
+    attributes:
+      label: Jira Agent Change / Decision Key
+      placeholder: GAD-5
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Agent ID
+    validations:
+      required: true
+  - type: input
+    id: current
+    attributes:
+      label: Current Version
+    validations:
+      required: true
+  - type: input
+    id: proposed
+    attributes:
+      label: Proposed Version
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Behavior / Authority / Tool Impact
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Regression Evidence
+    validations:
+      required: true
+  - type: textarea
+    id: rollback
+    attributes:
+      label: Rollback Plan
+    validations:
+      required: true

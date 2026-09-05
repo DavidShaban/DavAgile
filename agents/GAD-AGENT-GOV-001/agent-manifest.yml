@@ -1,0 +1,29 @@
+schema_version: '1.0'
+agent:
+  id: GAD-AGENT-GOV-001
+  role: Governance Agent
+  version: 0.1.0
+  lifecycle_status: PROPOSED
+ownership:
+  human_owner: David Betzold
+  jira_registry: GAD-12
+authority:
+  maximum_gad_level: A1
+  permitted_actions:
+  - check permission and evidence
+  - classify escalation need
+  - evaluate gate criteria
+  prohibited_actions:
+  - approve A3/A4
+  - treat UNKNOWN as compliant
+  - weaken fail-closed behavior
+runtime:
+  binding_status: NOT_AUTHORIZED
+  model: null
+  tools: []
+validation:
+  result: NOT_RUN
+  evidence_reference: null
+rollback:
+  previous_known_good_version: null
+  procedure: Disable candidate and restore prior governed configuration if one exists.
