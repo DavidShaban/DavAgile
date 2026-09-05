@@ -1,0 +1,63 @@
+name: GAD Simulation Runtime Profile Check
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-simulation-boundaries:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v4
+
+      - name: Validate simulation runtime profile
+        shell: python
+        run: |
+          import json, pathlib, re, sys
+
+          profile_path = pathlib.Path('governance/simulation-runtime-profile.json')
+          if not profile_path.exists():
+              print('No simulation runtime profile in this PR; boundary check not applicable.')
+              raise SystemExit(0)
+
+          profile = json.loads(profile_path.read_text(encoding='utf-8'))
+
+          required_false = [
+              'real_production_deployment',
+              'real_external_consequential_actions',
+              'a3_a4_approval_authority',
+              'regulated_data_use',
+          ]
+          assert profile.get('mode') == 'SIMULATION_ONLY', 'mode must be SIMULATION_ONLY'
+          for key in required_false:
+              assert profile.get(key) is False, f'{key} must be false'
+
+          expected = {
+              'GAD-AGENT-ORCH-001': 'A2',
+              'GAD-AGENT-GOV-001': 'A1',
+              'GAD-AGENT-VAL-001': 'A1',
+              'GAD-AGENT-EXEC-001': 'A2',
+              'GAD-AGENT-CHAL-001': 'A1',
+          }
+
+          for agent_id, max_auth in expected.items():
+              path = pathlib.Path('agents') / agent_id / 'agent-manifest.yml'
+              text = path.read_text(encoding='utf-8')
+              checks = [
+                  f'id: {agent_id}',
+                  'lifecycle_status: SIMULATION_APPROVED',
+                  f'maximum_gad_level: {max_auth}',
+                  'binding_status: SIMULATION_ONLY',
+                  'production_access: false',
+                  'external_consequential_actions: false',
+                  'a3_a4_approval_authority: false',
+                  'data_scope: synthetic_non_sensitive_only',
+              ]
+              for item in checks:
+                  assert item in text, f'{agent_id}: missing or invalid {item}'
+
+          print('PASS: GAD simulation runtime boundaries are valid.')
