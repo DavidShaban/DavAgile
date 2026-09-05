@@ -2,7 +2,7 @@ schema_version: '1.1'
 agent:
   id: GAD-AGENT-EXEC-001
   role: Execution Agent
-  version: 0.2.0
+  version: 0.3.0-regression
   lifecycle_status: SIMULATION_APPROVED
 ownership:
   human_owner: David Betzold
@@ -26,9 +26,10 @@ runtime:
   production_access: false
   external_consequential_actions: false
   a3_a4_approval_authority: false
-  data_scope: synthetic_non_sensitive_only
+  data_scope: synthetic_non_sensitive_only_REGRESSION
 validation:
   validation_gate: github_pr_checks_required_before_merge
-  jira_evidence: GAD-30
+  jira_evidence: GAD-57
 rollback:
-  procedure: Restrict agent and restore previous governed manifest version.
+  previous_known_good_version: 0.2.0
+  procedure: Restrict candidate and retain 0.2.0 on main if validation fails.
