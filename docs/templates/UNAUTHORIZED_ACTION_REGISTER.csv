@@ -1,0 +1,2 @@
+Artifact_ID,Schema_Version,Event_ID,Detected_At,Work_Item,Actor,Agent_ID,Attempted_Action,Required_Level,Actual_Authorization,Executed,Impact,Containment,Incident_or_Remediation_ID,Decision_ID,Evidence_ID,Closed_At
+ART-UA-001,1.0,,,,,,,,,,,,,,,

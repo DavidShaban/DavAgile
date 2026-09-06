@@ -1,0 +1,9 @@
+Artifact_ID,Schema_Version,Gate_ID,Gate_Name,Question,Entry_Criteria,Exit_Criteria,Mandatory_Evidence,Owner,Result,Decision_ID,Blockers
+ART-PILOT-001,1.1,P0,Identity & Scope,"Are pilot identity, owner, scope, source-of-truth and boundaries confirmed?",Pilot proposed,Identity/scope/prerequisites confirmed,Charter; role list; project/repo identity; prerequisite check,Human Project Hub,,,
+ART-PILOT-001,1.1,P1,Authorization,Is A0-A4 implemented and tested?,P0 PASS,Authorization controls demonstrably fail closed,Authorization matrix; transition tests; grant register,Governance,,,
+ART-PILOT-001,1.1,P2,Workflow,Do workflow states and fail-closed paths work?,P1 PASS,Required workflow/remediation paths validated,Workflow config; transition/validator evidence,Delivery Lead,,,
+ART-PILOT-001,1.1,P3,AI Boundary,"Are agent permissions, tools, data and escalation bounded?",P1/P2 adequate,Boundary tests PASS,Agent/model registry; tool/data boundary tests,AI Lead,,,
+ART-PILOT-001,1.1,P4,Evidence,Can required evidence be captured and traced?,Evidence store/config ready,Mandatory evidence chain demonstrated,Evidence package examples; link tests,Evidence Owner,,,
+ART-PILOT-001,1.1,P5,Human Control,Do private dashboard/queues expose decisions/exceptions accurately?,Workflow/fields configured,Nine queues + privacy + historical-state behavior validated,Filter tests; permission tests; dashboard evidence,Project Admin,,,
+ART-PILOT-001,1.1,P6,Recovery,Has bounded failure/recovery been demonstrated?,Recovery case designed,Recovery succeeds without unauthorized side effect,Recovery test; remediation record,Technical Lead,,,
+ART-PILOT-001,1.1,P7,Readiness,Do all mandatory pilot controls pass?,P0-P6 assessed,No unresolved mandatory blocker,Gate register; unresolved blocker review; decision record,Human Project Hub,,,

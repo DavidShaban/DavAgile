@@ -1,0 +1,22 @@
+Artifact_ID,Schema_Version,Term,Definition
+ART-GLOSS-001,1.0,A0-A4,"Authorization levels for actions in context, from observe/analyze through high-impact or authority-changing action."
+ART-GLOSS-001,1.0,AI-to-AI handoff,Transfer of work between AI capabilities; does not transfer human authorization.
+ART-GLOSS-001,1.0,Approval-ready package,"Decision package containing proposal, evidence, risk, uncertainty, and required decision."
+ART-GLOSS-001,1.0,Authorization,Permission for an actor/action class to act within defined scope and conditions.
+ART-GLOSS-001,1.0,Autonomy,Independent execution inside an already authorized operating boundary.
+ART-GLOSS-001,1.0,Confidence band,"Locally calibrated confidence interval/band used for review/monitoring, not authority."
+ART-GLOSS-001,1.0,Confidence score,Model/system estimate of certainty or confidence; not permission.
+ART-GLOSS-001,1.0,Decision record,"Traceable record of a governed decision and its authority, scope, conditions, and evidence."
+ART-GLOSS-001,1.0,Evidence package,"Structured evidence supporting a claim, readiness state, decision, release, or closure."
+ART-GLOSS-001,1.0,Fail-closed,Stop the affected action at a mandatory unsatisfied boundary and escalate/remediate.
+ART-GLOSS-001,1.0,Hallucination guardrail,Control for detecting/constraining/routing unsupported AI output.
+ART-GLOSS-001,1.0,Human-in-the-loop,Human actively approves/completes a defined step before continuation.
+ART-GLOSS-001,1.0,Human-on-the-loop,Human supervises a bounded automated process and can intervene.
+ART-GLOSS-001,1.0,Human Project Hub,Named human decision authority for consequential decisions not delegated.
+ART-GLOSS-001,1.0,Model version pinning,Use/recording of an identifiable model version for traceability and regression assessment.
+ART-GLOSS-001,1.0,Orchestrator,Capability coordinating bounded work and handoffs without approval authority by virtue of coordination.
+ART-GLOSS-001,1.0,Planner,"Capability that decomposes, forecasts, and recommends."
+ART-GLOSS-001,1.0,RAG grounding,Retrieval-augmented generation using identified source material; grounding does not by itself validate truth.
+ART-GLOSS-001,1.0,Unauthorized action,"Action outside valid authorization, scope, condition, or validity period."
+ART-GLOSS-001,1.0,Validator,Capability that evaluates defined criteria with appropriate separation from execution.
+ART-GLOSS-001,1.0,Worker,Capability that performs bounded execution.

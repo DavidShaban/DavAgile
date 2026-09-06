@@ -1,0 +1,11 @@
+Artifact_ID,Schema_Version,Activity,Human_Project_Hub,Orchestrator,Planner,Worker,Validator,Governance,Evidence,Reporting
+ART-RACI-001,1.0,Set outcome / constraints,A,C,R,I,I,C,I,I
+ART-RACI-001,1.0,Classify authorization,A,C,C,I,I,R,I,I
+ART-RACI-001,1.0,Plan backlog / dependencies,C,A,R,C,I,C,I,I
+ART-RACI-001,1.0,Execute A0/A1,I,A,C,R,C,C,C,I
+ART-RACI-001,1.0,Execute delegated A2,I,A,C,R,C,C,C,I
+ART-RACI-001,1.0,Approve A3/A4,A/R,C,C,I,C,C,C,I
+ART-RACI-001,1.0,Validate consequential output,I,C,I,C,R,C,C,I
+ART-RACI-001,1.0,Assemble evidence,I,C,I,C,C,C,R,I
+ART-RACI-001,1.0,Maintain control dashboard,I,C,I,I,C,C,C,R
+ART-RACI-001,1.0,Approve authority expansion,A/R,I,I,I,C,C,C,I

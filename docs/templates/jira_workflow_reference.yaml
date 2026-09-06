@@ -1,0 +1,53 @@
+artifact_meta:
+  artifact_id: ART-JIRA-001
+  schema_version: "1.1"
+  documentation_release: "1.1"
+  method_version: "1.2"
+  status: REFERENCE_PATTERN
+name: "GAD v1.2 Reference Jira Workflow"
+fields:
+  gad_authorization_level: [A0, A1, A2, A3, A4]
+  gad_decision_required: [YES, NO]
+  gad_decision_id: "text/link"
+  gad_evidence_links: "multi-link"
+  gad_evidence_status: [MISSING, PARTIAL, COMPLETE]
+  gad_gate_approval_status: [OPEN, PENDING, APPROVED, REJECTED, EXPIRED, WITHDRAWN]
+  gad_validation_result: [NOT_RUN, PASS, FAIL, INDETERMINATE]
+  gad_ai_confidence: "optional number/label; never grants authority"
+  gad_human_review_required: [YES, NO]
+  gad_unauthorized_action_flag: [YES, NO]
+  gad_readiness: [NOT_READY, READY_FOR_HUMAN_DECISION, READY_FOR_RELEASE_AUTHORIZATION, READY_FOR_PILOT_AUTHORIZATION, REMEDIATION_REQUIRED, EVIDENCE_INSUFFICIENT]
+states: [INTAKE, ASSESSED, READY, IN_PROGRESS, VALIDATION, HUMAN_DECISION, APPROVED_FOR_RELEASE, RELEASED, DONE, BLOCKED, REMEDIATION_REQUIRED]
+guards:
+  ASSESSED_to_READY:
+    require: [authorization_level_classified, dependencies_satisfied, acceptance_criteria_present, validation_method_defined]
+  VALIDATION_to_HUMAN_DECISION:
+    when: {authorization_level_in: [A3, A4]}
+    require: [validation_result_PASS, evidence_status_COMPLETE]
+  HUMAN_DECISION_to_APPROVED_FOR_RELEASE:
+    require: [decision_id, decision_outcome_APPROVED, decision_not_expired_or_revoked]
+  VALIDATION_to_APPROVED_FOR_RELEASE:
+    when: {authorization_level_in: [A0, A1, A2]}
+    require: [validation_result_PASS, evidence_status_COMPLETE, delegation_valid_if_A2]
+  any_to_REMEDIATION_REQUIRED:
+    when_any: [mandatory_validation_failed, mandatory_evidence_missing, approval_invalid, scope_mismatch]
+  APPROVED_FOR_RELEASE_to_RELEASED:
+    require: [release_actor_authorized, recovery_plan_if_required]
+  RELEASED_to_DONE:
+    require: [closure_evidence_complete, monitoring_complete_if_required]
+automation_reference:
+  - trigger: "confidence_below_local_review_threshold"
+    action: "set gad_human_review_required=YES"
+    prohibition: "must not elevate authorization"
+  - trigger: "mandatory_transition_skipped"
+    action: "set gad_unauthorized_action_flag=YES and alert governance"
+dashboard_reference_filters:
+  - Human Decision Required
+  - A3/A4 Awaiting Approval
+  - Evidence Missing
+  - Validation Failed
+  - Remediation Required
+  - Dependency Blocked
+  - WIP / Flow Exceptions
+  - Ready for Release Authorization
+  - Unauthorized / Policy Exception Signals
