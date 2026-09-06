@@ -1,0 +1,58 @@
+{
+  "name": "gad-protected-main",
+  "target": "branch",
+  "enforcement": "active",
+  "conditions": {
+    "ref_name": {
+      "include": [
+        "refs/heads/main"
+      ],
+      "exclude": []
+    }
+  },
+  "rules": [
+    {
+      "type": "deletion"
+    },
+    {
+      "type": "non_fast_forward"
+    },
+    {
+      "type": "pull_request",
+      "parameters": {
+        "required_approving_review_count": 1,
+        "dismiss_stale_reviews_on_push": true,
+        "require_code_owner_review": false,
+        "require_last_push_approval": true,
+        "required_review_thread_resolution": true
+      }
+    },
+    {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": true,
+        "do_not_enforce_on_create": false,
+        "required_status_checks": [
+          {"context": "gad-validation"},
+          {"context": "tests"},
+          {"context": "evidence-validator"}
+        ]
+      }
+    }
+  ],
+  "gad_notes": {
+    "authorization": "Use protected environments or equivalent human approval controls for A3/A4 release actions.",
+    "codeowners": "Consider CODEOWNERS for governance-sensitive paths.",
+    "signatures": "Use signed commits where local policy requires them.",
+    "traceability": "PR should link work item, decision ID when required, evidence package, validation, and recovery reference.",
+    "config_recovery": "Version/export rulesets and maintain a tested restoration procedure.",
+    "adaptation": "Exact schema depends on GitHub ruleset API/version and organization plan."
+  },
+  "artifact_meta": {
+    "artifact_id": "ART-GH-001",
+    "schema_version": "1.1",
+    "documentation_release": "1.1",
+    "method_version": "1.2",
+    "status": "REFERENCE_PATTERN"
+  }
+}

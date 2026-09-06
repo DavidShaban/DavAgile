@@ -1,0 +1,52 @@
+artifact_meta:
+  artifact_id: ART-AGENT-001
+  schema_version: "1.1"
+  documentation_release: "1.1"
+  method_version: "1.2"
+  status: REFERENCE_TEMPLATE
+agent:
+  id: "GAD-AGENT-EXAMPLE-001"
+  version: "0.1.0"
+  name: "Example Validation Agent"
+  owner: "Named Human Owner"
+  purpose: "Validate bounded GAD work items against defined criteria."
+scope:
+  permitted:
+    - "Read explicitly authorized work-item data."
+    - "Run approved validation checks."
+    - "Produce internal validation evidence."
+  prohibited:
+    - "Approve A3 or A4 actions."
+    - "Expand its own permissions or tools."
+    - "Transfer authorization to another AI."
+    - "Publish externally."
+    - "Use data outside approved classification or project scope."
+authorization:
+  ceiling: "A1"
+  standing_delegation_id: null
+  escalation:
+    - "Any requested state mutation."
+    - "Missing required evidence."
+    - "Scope mismatch."
+    - "Unexpected tool behavior."
+model_provenance:
+  provider: ""
+  model: ""
+  effective_version: ""
+  prompt_version: ""
+  tool_config_version: ""
+data:
+  allowed_classes: ["PROJECT_INTERNAL", "SYNTHETIC"]
+  prohibited_classes: ["UNAUTHORIZED_CLIENT_DATA", "SECRETS"]
+tools:
+  allowed: ["read_issue", "run_validator", "write_internal_evidence"]
+  prohibited: ["production_deploy", "permission_admin"]
+evidence:
+  required_outputs: ["validation_result", "criteria_checked", "evidence_links", "limitations", "timestamp", "agent_version", "model_effective_version_when_material"]
+lifecycle:
+  status: "SPECIFIED"
+  implementation_status: "NOT_IMPLEMENTED"
+  testing_status: "NOT_TESTED"
+  validation_status: "NOT_VALIDATED"
+  deployment_status: "NOT_DEPLOYED"
+  operational_status: "NOT_OPERATIONAL"

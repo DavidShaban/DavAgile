@@ -1,0 +1,15 @@
+artifact_meta:
+  artifact_id: ART-DASH-002
+  schema_version: "1.0"
+  documentation_release: "1.1"
+  method_version: "1.2"
+  status: REFERENCE_PATTERN
+sections:
+  delivery_speed: ["Cycle Time P50/P85", "Throughput per Iteration"]
+  ai_error: ["AI Rejection/Error Rate", "AI-Induced Rework"]
+  governance: ["Evidence Completeness Compliance", "Unauthorized Consequential Execution", "On-Time Gate Approval Rate"]
+  remediation: ["Remediation Time"]
+  leading: ["Evidence Attachment at Ready", "AI Confidence Trend"]
+  lagging: ["Change Failure Rate", "Unauthorized Action Rate per 1,000"]
+source: "KPI_CATALOG.csv"
+anti_gaming_review: "Quarterly and when metric behavior changes materially"

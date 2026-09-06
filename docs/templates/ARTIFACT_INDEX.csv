@@ -1,0 +1,27 @@
+Artifact_ID,Schema_Version,File,Owning_Chapter,Purpose,Documentation_Release,Status
+ART-AUTH-001,1.1,AUTHORIZATION_MATRIX.csv,Chapter 2,A0–A4 authorization control matrix,1.1,REFERENCE
+ART-AUTH-002,1.0,AUTHORIZATION_GRANT_REGISTER.csv,Chapter 2,Delegation register,1.1,REFERENCE
+ART-RACI-001,1.0,RACI_MATRIX.csv,Chapter 3,Reference accountability matrix,1.1,REFERENCE
+ART-PILOT-001,1.1,PILOT_GATE_REGISTER.csv,Chapters 5/10,Gate evidence register,1.1,REFERENCE
+ART-EVID-001,1.1,evidence_package_template.md,Chapter 8,Evidence package template,1.1,REFERENCE
+ART-DEC-001,1.1,decision_record_template.md,Chapter 8,Decision record template,1.1,REFERENCE
+ART-JIRA-001,1.1,jira_workflow_reference.yaml,Chapter 9,Jira workflow reference pattern,1.1,REFERENCE
+ART-GH-001,1.1,github_ruleset_reference.json,Chapter 9,GitHub ruleset reference pattern,1.1,REFERENCE
+ART-PILOT-003,1.1,pilot_readiness_checklist.md,Chapter 10,Pilot readiness checklist,1.1,REFERENCE
+ART-KPI-001,1.1,KPI_CATALOG.csv,Chapter 11,KPI catalog,1.1,REFERENCE
+ART-CHG-001,1.1,change_request_template.md,Chapters 4/13,Change request,1.1,REFERENCE
+ART-REM-001,1.1,incident_and_remediation_template.md,Chapters 4/8,Incident/remediation,1.1,REFERENCE
+ART-AGENT-001,1.1,agent_manifest_example.yaml,Chapter 3,Agent manifest,1.1,REFERENCE
+ART-CHG-002,1.0,change-impact-assessment.md,Chapter 8,Blast-radius/reversibility assessment,1.1,REFERENCE
+ART-MODEL-001,1.0,MODEL_AGENT_REGISTRY.yaml,Chapters 7/12,Model/agent registry,1.1,REFERENCE
+ART-UA-001,1.0,UNAUTHORIZED_ACTION_REGISTER.csv,Chapter 11,Unauthorized-action log,1.1,REFERENCE
+ART-EXC-001,1.0,EXCEPTION_REGISTER.csv,Chapter 8,Exception register,1.1,REFERENCE
+ART-RISK-001,1.0,RISK_REGISTER.csv,Chapters 5/8,Risk register,1.1,REFERENCE
+ART-AUDIT-001,1.0,AUDIT_SAMPLE_LOG.csv,Chapter 11,Audit sample log,1.1,REFERENCE
+ART-MAT-001,1.0,maturity-assessment.md,Chapter 12,Evidence-scored maturity assessment,1.1,REFERENCE
+ART-PILOT-002,1.0,PILOT_REPORT_TEMPLATE.md,Chapter 10,Pilot report,1.1,REFERENCE
+ART-ESC-001,1.0,escalation-protocol.md,Chapter 4,Escalation protocol,1.1,REFERENCE
+ART-DASH-001,1.0,AI_CONFIDENCE_DASHBOARD.yaml,Chapters 7/11,Confidence dashboard reference,1.1,REFERENCE
+ART-DASH-002,1.0,KPI_DASHBOARD.yaml,Chapter 11,KPI dashboard reference,1.1,REFERENCE
+ART-GLOSS-001,1.0,GAD_TERMINOLOGY_GLOSSARY.csv,Appendix E,Machine-readable glossary,1.1,REFERENCE
+ART-INDEX-001,1.0,ARTIFACT_INDEX.csv,Appendix A,Artifact metadata index,1.1,REFERENCE

@@ -1,0 +1,16 @@
+Artifact_ID,Schema_Version,KPI,Category,Definition,Owner,Provenance,Review_Cadence,Target_or_Intent,Calculation_or_Interpretation
+ART-KPI-001,1.1,Cycle Time P50/P85,Delivery speed,Elapsed time from In Progress to Done,Delivery Lead,Issue tracker,Weekly,Local target,Median and 85th percentile
+ART-KPI-001,1.1,Throughput per Iteration,Delivery speed,Completed work items per iteration/timebox,Delivery Lead,Issue tracker,Iteration,Local target,Count per iteration
+ART-KPI-001,1.1,AI Rejection/Error Rate,AI error,AI outputs/actions rejected by validator or corrected post-hoc,AI Lead,Validation + remediation records,Monthly,Trend downward,Rejected/corrected AI outcomes ÷ AI-assisted outcomes; segment by agent/A-level
+ART-KPI-001,1.1,AI-Induced Rework,AI error,Rework materially caused by AI output defect,AI Lead,Issue/remediation records,Monthly,Trend downward,Count or effort
+ART-KPI-001,1.1,Evidence Completeness Compliance,Governance compliance,Completed governed items with all mandatory evidence,Evidence Owner,Evidence packages,Weekly/Monthly,100% for mandatory release/pilot evidence,Complete packages ÷ governed completed items
+ART-KPI-001,1.1,On-Time Gate Approval Rate,Governance compliance,Gate decisions completed within local target,Governance Owner,Decision records,Monthly,Local target,On-time decisions ÷ decisions due
+ART-KPI-001,1.1,Unauthorized Consequential Execution,Governance compliance,A3/A4 execution without required authorization,Governance Owner,Unauthorized-action register,Immediate/Monthly,Target 0,Count
+ART-KPI-001,1.1,"Unauthorized Action Rate per 1,000",Governance compliance,Unauthorized-action events normalized by work volume,Governance Owner,Unauthorized-action register + issue tracker,Monthly,Target 0 for consequential events,Events ÷ governed work items × 1000
+ART-KPI-001,1.1,Remediation Time,Remediation time,Time from detection to containment/closure,Governance/Incident Owner,Remediation register,Monthly,Trend downward without premature closure,Median/P85 detection-to-closure
+ART-KPI-001,1.1,Decision Latency,Governance compliance,Time from decision-ready to recorded decision,Human Project Hub,Decision records,Weekly/Monthly,Local target,Median/P90
+ART-KPI-001,1.1,Evidence Attachment at Ready,Leading indicator,Active governed items with required evidence links started by Ready/early execution,Evidence Owner,Issue tracker,Weekly,Trend upward,Items with evidence link ÷ governed Ready/In Progress
+ART-KPI-001,1.1,AI Confidence Trend,Leading indicator,Confidence trend by agent/work class where meaningful,AI Lead,AI execution logs,Weekly/Monthly,Calibration-dependent,Trend; never used to grant authority
+ART-KPI-001,1.1,Change Failure Rate,Lagging indicator,Released changes causing rollback/incident/defect per local definition,Technical Lead,Release/incident records,Monthly,Trend downward,Failed changes ÷ releases
+ART-KPI-001,1.1,Validation First-Pass Rate,Quality,Items passing validation first time,Validation Owner,Validation records,Monthly,Trend upward,First-pass PASS ÷ validated items
+ART-KPI-001,1.1,WIP Compliance,Flow,Observed time/period within configured WIP limits,Delivery Lead,Board analytics,Weekly,High compliance,Compliant observations ÷ total

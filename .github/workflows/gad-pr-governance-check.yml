@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   metadata:
+    name: GAD PR Governance Check
     runs-on: ubuntu-latest
     steps:
       - name: Validate required GAD sections

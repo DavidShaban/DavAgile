@@ -1,0 +1,27 @@
+artifact_meta:
+  artifact_id: ART-MODEL-001
+  schema_version: "1.0"
+  documentation_release: "1.1"
+  method_version: "1.2"
+  status: REFERENCE_TEMPLATE
+records:
+  - agent_id: ""
+    agent_version: ""
+    owner: ""
+    purpose: ""
+    model_provider: ""
+    model_name: ""
+    model_effective_version: ""
+    prompt_or_template_version: ""
+    tool_config_version: ""
+    data_classes: []
+    authorization_ceiling: ""
+    risk_tier: ""
+    testing_status: ""
+    validation_status: ""
+    deployment_status: ""
+    operational_status: ""
+    last_validated_at: ""
+    retirement_state: ACTIVE
+    evidence_ids: []
+    notes: ""

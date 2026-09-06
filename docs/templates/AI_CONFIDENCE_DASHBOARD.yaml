@@ -1,0 +1,19 @@
+artifact_meta:
+  artifact_id: ART-DASH-001
+  schema_version: "1.0"
+  documentation_release: "1.1"
+  method_version: "1.2"
+  status: REFERENCE_PATTERN
+purpose: "Monitor confidence and review signals. Confidence never grants authorization."
+dimensions: [agent_id, work_class, authorization_level, model_effective_version, period]
+measures: [confidence_median, confidence_p10, validation_rejection_rate, human_override_rate, ai_induced_rework]
+rules:
+  - name: low_confidence_review
+    condition: "confidence < locally_calibrated_review_threshold"
+    action: "set HUMAN_REVIEW_REQUIRED"
+  - name: authority_guardrail
+    condition: "any confidence value"
+    action: "DO_NOT_CHANGE_AUTHORIZATION_LEVEL"
+notes:
+  - "Thresholds require calibration from observed performance."
+  - "A model/provider change may invalidate prior calibration."

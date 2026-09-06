@@ -1,57 +1,39 @@
-# GAD v1.2 — Pilot 01 GitHub Control Bundle
+# GAD v1.2 — Governed Adaptive Delivery
 
-**Pilot:** GAD-PILOT-01  
-**Purpose:** Implement the GitHub evidence/configuration layer for the bounded GAD v1.2 validation pilot.  
-**Status:** Prepared for application; not yet applied to a live repository.
+**Documentation Release:** 1.1  
+**Publication status:** `AUTHORIZED_FOR_PUBLIC_RELEASE`  
+**Author:** David Betzold  
+**Canonical source SHA-256:** `3ab3b868beeb289c154b095b31756f944bc16c3c5b29953d06bd9ba004a8e16e`
 
-## Control Objectives
+Governed Adaptive Delivery (GAD) is a human-centered hybrid method for AI-assisted, governed, adaptive delivery. It integrates deliberate milestone planning, Agile execution, AI-assisted work, evidence-based governance, and explicit human authority.
 
-This bundle implements:
+## Canonical release identity
 
-- version-controlled agent manifests;
-- governed pull-request metadata;
-- protected governance/configuration paths;
-- CI validation of required GAD PR sections;
-- simulated A3 deployment only;
-- explicit evidence and Jira traceability;
-- no real production deployment;
-- no AI A3/A4 approval authority.
+- Method: **GAD v1.2**
+- Documentation: **Release 1.1**
+- Publication date: **6 September 2026**
+- Release identifier: `gad-v1.2-docs-1.1`
+- Publication readiness: `READY_FOR_PUBLICATION`
+- Public release authorization: `AUTHORIZED_FOR_PUBLIC_RELEASE`
 
-## Recommended Repository
+See [`PUBLICATION_RELEASE_RECORD.md`](PUBLICATION_RELEASE_RECORD.md), [`LICENSE.md`](LICENSE.md), and [`CITATION.cff`](CITATION.cff).
 
-Suggested repository name:
+## Human-authority invariant
 
-```text
-gad-pilot-01
-```
+GAD does not treat AI confidence, technical capability, tool access, or AI-to-AI delegation as authority. Consequential action remains bounded by the A0–A4 authorization model and the applicable human decision process.
 
-If an existing repository is used, preserve its current governance and apply this bundle through a reviewed pull request.
+## Documentation site
 
-## Required GitHub Controls
+The repository includes a GitHub Pages publication workflow. The public site is deployed from `site/` after the publication change reaches `main` and GitHub Pages is enabled for Actions.
 
-Before simulation execution:
+## Rights
 
-```text
-[ ] default branch identified
-[ ] direct push to default branch disabled
-[ ] pull request required
-[ ] required review enabled
-[ ] GAD PR Governance Check required
-[ ] workflow files protected
-[ ] agents/** protected
-[ ] governance/** protected
-[ ] simulated deployment environment configured
-[ ] no production secret or endpoint present
-```
+Copyright © 2026 David Betzold. All rights reserved. No open-source or Creative Commons license is granted by this release. See [`LICENSE.md`](LICENSE.md).
 
-## Fail-Closed Rule
+## Historical GAD-PILOT-01 material
 
-If GitHub cannot enforce a required A3 approval:
+This repository previously hosted the GAD-PILOT-01 GitHub control bundle. Existing `agents/`, `governance/`, `APPLY_TO_GITHUB.md`, and related pilot artifacts are intentionally preserved as historical implementation evidence; publication does not rewrite or delete that history.
 
-```text
-real deployment = DISABLED
-simulated deployment only = PERMITTED
-Jira approval record = required
-```
+## Integrity
 
-Never weaken GAD because a platform feature is unavailable.
+The authoritative documentation source remains the frozen package identified by the SHA-256 above. Publication-format files must not silently alter the underlying method content.
