@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use or reference this work, please cite it using the metadata below."
+title: "GAD v1.2: Governed Adaptive Delivery"
+type: book
+authors:
+  - family-names: "Betzold"
+    given-names: "David"
+version: "1.2 / Documentation Release 1.1"
+date-released: "2026-09-06"
+license: "proprietary"
+abstract: >-
+  Governed Adaptive Delivery (GAD) is a human-centered hybrid method for
+  AI-assisted, governed, adaptive delivery, integrating deliberate planning,
+  Agile execution, AI-assisted work, evidence-based governance, and explicit
+  human authority.
+keywords:
+  - Governed Adaptive Delivery
+  - GAD
+  - AI governance
+  - Agile
+  - Waterfall
+  - human-AI collaboration
+  - evidence-based governance
